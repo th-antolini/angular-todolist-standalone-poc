@@ -1,0 +1,40 @@
+<div class="backdrop" (click)="onCancel()"></div>
+<dialog open>
+  <h2>Aggiungi Attivita'</h2>
+  <form (ngSubmit)="onSubmit()">
+    <p>
+      <label for="title">Titolo</label>
+      <input
+        type="text"
+        id="title"
+        name="title"
+        [(ngModel)]="inputTitle"
+      />
+    </p>
+
+    <p>
+      <label for="description">Descrizione</label>
+      <textarea
+        id="description"
+        rows="5"
+        name="description"
+        [(ngModel)]="inputDescription">
+      </textarea>
+    </p>
+
+    <p>
+      <label for="due-date">Data di scadenza</label>
+      <input
+        type="date"
+        id="due-date"
+        name="due-date"
+        [(ngModel)]="inputDueDate"
+      />
+    </p>
+
+    <p class="actions">
+      <button type="button" (click)="onCancel()">Annulla</button>
+      <button type="submit">Crea</button>
+    </p>
+  </form>
+</dialog>

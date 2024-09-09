@@ -1,0 +1,26 @@
+
+@if (isAddingTask) {
+    <app-new-task 
+        (close)="onTaskModalClose()"
+        [userId]="userId"    
+    />
+}
+<section id="tasks">
+<header>
+        <h2>Attivita' di {{ name }}</h2>
+        <menu>
+            <button (click)="onTaskModalOpen()">Aggiungi Attivita'</button>
+        </menu>
+    </header>
+
+    <ul>
+        @for (task of selectedUserTasks; track task.id) {
+            <li>
+                <app-task [task]="task"/>
+            </li>
+        }
+    </ul>
+    @if (!selectedUserTasks.length) {
+        <p>Nessuna attivita' e' stata inserita.</p>
+    }
+</section>
